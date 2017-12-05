@@ -1,0 +1,29 @@
+apply plugin: "com.android.library"
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false  // Set this to true to enable Proguard
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile "com.facebook.react:react-native:0.29.0-rc.0"
+    compile 'com.braintreepayments.api:braintree:2.3.9'
+    compile('com.braintreepayments.api:drop-in:2.+') {
+        exclude group: 'com.braintreepayments.api', module: 'braintree'
+    }
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
+}
