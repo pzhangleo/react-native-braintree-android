@@ -38,6 +38,12 @@ module.exports = {
     });
   },
 
+  showDropIn() {
+    return new Promise(function() {
+        Braintree.showDropIn();
+    });
+  },
+
   showPayPalViewController() {
     return new Promise(function(resolve, reject) {
       Braintree.paypalRequest(nonce => resolve(nonce), error => reject(error));
